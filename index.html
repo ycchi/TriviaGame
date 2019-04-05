@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link rel="stylesheet" href="./assets/css/style.css">
+<script src="./assets/javascript/script.js"></script>
+<title>Trivia Game</title>
+</head>
+<body>
+
+<div class="container vh-100 bg-success">
+  <!-- Title/Banner-->
+  <div class="row vh-30 bg-primary">
+
+  </div>
+
+
+  <!-- Main -->
+  <div class="row display-flex vh-65 bg-light ">
+    
+    <!-- Time/Score section-->
+    <div class="col-sm-12 col-lg-3 bg-warning flex-grow-1">
+        <button type="button" class="btn btn-primary" id="btnStart">Start</button>
+        <button type="button" class="btn btn-primary" id="btnStop">Stop</button>
+
+        <h2><span id="questionTimeLimit"></span></h2>
+        <br>
+        <p>Question Counter</p>
+        <hr> 
+        <h2><span id="showAnswerCounter"></span></h2>
+        <br>
+        <p>show answer Counter</p>
+      
+    </div>
+
+    <!-- Question section -->
+    <div class="col-sm-12 col-lg-9 bg-info">
+      <div class="row px-3 pt-3 d-flex justify-content-center">
+        <div class="card w-75">
+            <div class="card-header">
+              Question
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Special title treatment</h4>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row px-3 pt-3 d-flex justify-content-center">
+        <ul class="list-group w-75">
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="container vh-05 bg-dark">
+    <p class="text-light">footer text</p>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.vh-30{
+  min-height: 30%;
+}
+
+.vh-65{
+  min-height:65%;
+}
+
+.vh-05{
+  min-height: 5%;
+}
+
+.main {
+  min-height: 100%;
+}
