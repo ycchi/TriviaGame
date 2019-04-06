@@ -1,7 +1,38 @@
-var questionArray = [];
+var questionArray = [
+  {
+    question: 'Question 1: Apple or Orange',
+    answer: 'Answer 1',
+    choices: ['Answer 1', "Answer 2", "Answer 3", "Answer 4"],
+    userAnswer: ""
+  },
+  {
+    question: 'Question 2',
+    answer: 'Answer 2',
+    choices: ['Answer 1', "Answer 2", "Answer 3", "Answer 4"],
+    userAnswer: ""
+  },
+  {
+    question: 'Question 3',
+    answer: 'Answer 3',
+    choices: ['Answer 1', "Answer 2", "Answer 3", "Answer 4"],
+    userAnswer: ""
+  },
+  {
+    question: 'Question 4',
+    answer: 'Answer 4',
+    choices: ['Answer 1', "Answer 2", "Answer 3", "Answer 4"],
+    userAnswer: ""
+  }
+]
 
 
 
+// randomize question orders
+// for (var i = 0; i < questionArray.length; i ++){
+//   var randomIndexArray = [];
+//   randomIndexArray.push(Math.floor(Math.random() * questionArray.length)); 
+// }
+// console.log(randomIndexArray);
 
 window.onload = function() {
 
@@ -12,7 +43,8 @@ var timeRunning = false;
 var timeLimit = 0;
 var nextQuestionRunning = false
 
-var questionTimeLimit = 3 //3 seconds
+var questionCounter = 0;
+
 var correctCounter = 0;
 
 
@@ -30,10 +62,8 @@ function startIntervalTimer() {
 }
 
 // counter function??
-function counter () {
+function counter() {
   
-
-
   if (timeLimit === 0 && nextQuestionRunning){
     stopIntervalTimer();
     showAnswer();
@@ -44,7 +74,7 @@ function counter () {
 
   timeLimit--;
   // write on page
-  $("#questionTimeLimit").text(timeLimit)
+  $("#timeRemaining").text(timeLimit)
   
 }
 
@@ -65,6 +95,35 @@ function nextQuestion() {
   timeLimit = 20;
   console.log("nextQuestion is Running")
   startIntervalTimer();
+
+  // write question on page
+  $("#question").text(questionArray[0].question)
+  //console.log(questionArray[0].question)
+
+  // write multiple choices on page
+  // loop through questionArray[i].choices array and write each choice to list item element
+  for (var i = 0; i < questionArray[0].choices.length; i++){
+    //Create and append each li to ul #choices 
+    var $choices = $("#choices")
+    var $li = $("<li>");
+    $li
+      .text(questionArray[0].choices[i])    
+      .addClass("list-group-item list-group-item-action");
+    $choices.append($li);
+    console.log("li " + $li )
+  };
+
+
+    //FAILD ATTEMPT: 
+    //Method2: adding text to existing li element
+    /*
+    $("li").each(function(){
+      console.log("this: " + $(this))
+      $(this).text(questionArray[0].choices[i])
+      console.log(i);
+    });
+    */
+  
 }
 
 // showAnswer
@@ -73,6 +132,11 @@ function showAnswer() {
   timeLimit = 5;
   console.log("showAnswer is Running")
   startIntervalTimer();
+
+  // write correct answer to page
+  $("#question").text("Correct Answer is...")
+  // highlight correct answer to page
+
 }
 
 
@@ -107,55 +171,6 @@ function showAnswer() {
 
 
 
-
-// // run "startTrivia" when btnStart is clicked
-// $("#btnStart").click(startTrivia);
-
-// function startTrivia() {
-//   // intervalKeeper = setInterval(showAnswer, 1000 * 5);
-//   // clearTimeout(timeKeeper);
-//   // console.log("startTrivia is running");
-//   // console.log("intervalKeeper: " + intervalKeeper);
-
-//   if (!clockRunning) {
-//     clockRunning = true;
-//     timeID = setTimeout(count, 1000);
-//   }
-// }
-
-
-
-// function count() {
-
-//   //  TODO: increment time by 1, remember we cant use "this" here.
-//   time++;
-//   var countDown15 = 15 - time
-//   $("#questionCounter").text(countDown15);
-//   console.log("time: " + time)
-// }
-
-// if(countDown15 === 0) {
-//   //reset 
-//   clearInterval(intervalID);
-//   clockRunning = false;
-//   console.log("countdown ended");
-//   showAnswer();
-// }
-
-
-
-// // showAnswer in between questions
-// function showAnswer() {
-//   // run startTrivia after 
-
-  
-
-
-//   timeKeeper = setTimeout(startTrivia, 1000*2);
-//   //clearInterval(intervalKeeper);
-//   console.log("showAnswer is running")
-//   console.log("timeKeeper: " + timeKeeper);
-// }
 
 
 

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <link rel="stylesheet" href="./assets/css/style.css">
-<script src="./assets/javascript/script.js"></script>
+
 <title>Trivia Game</title>
 </head>
 <body>
@@ -27,13 +27,13 @@
         <button type="button" class="btn btn-primary" id="btnStart">Start</button>
         <button type="button" class="btn btn-primary" id="btnStop">Stop</button>
 
-        <h2><span id="questionTimeLimit"></span></h2>
+        <h2><span id="timeRemaining"></span></h2>
         <br>
-        <p>Question Counter</p>
+        <p>Time Remaining</p>
         <hr> 
-        <h2><span id="showAnswerCounter"></span></h2>
+        <h2><span id="correctCounter"></span></h2>
         <br>
-        <p>show answer Counter</p>
+        <p># of Correct Answers</p>
       
     </div>
 
@@ -45,18 +45,17 @@
               Question
             </div>
             <div class="card-body">
-              <h4 class="card-title">Special title treatment</h4>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <h4 class="card-title" id="question"></h4>
             </div>
           </div>
         </div>
 
         <div class="row px-3 pt-3 d-flex justify-content-center">
         <ul class="list-group w-75">
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+            <li class="list-group-item list-group-item-action multiplechoices">Morbi leo risus</li>
+            <li class="list-group-item list-group-item-action multiplechoices">Porta ac consectetur ac</li>
+            <li class="list-group-item list-group-item-action multiplechoices">Vestibulum at eros</li>
+            <li class="list-group-item list-group-item-action multiplechoices">Vestibulum at eros</li>
           </ul>
         </div>
       </div>
@@ -73,5 +72,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="./assets/javascript/script.js"></script>
 </body>
 </html>
