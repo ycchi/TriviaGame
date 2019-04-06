@@ -14,9 +14,17 @@
 
 <div class="container vh-100 bg-success">
   <!-- Title/Banner-->
-  <div class="row vh-30 bg-primary">
-
-  </div>
+    <div class="jumbotron">
+      <h1 class="display-3">Trivia</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for
+                      calling extra attention to featured content or information.</p>
+      <hr class="my-2">
+      
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#!" role="button" id="btnStart">New Game</a>
+      </p>
+    </div>
+    
 
 
   <!-- Main -->
@@ -24,16 +32,15 @@
     
     <!-- Time/Score section-->
     <div class="col-sm-12 col-lg-3 bg-warning flex-grow-1">
-        <button type="button" class="btn btn-primary" id="btnStart">Start</button>
-        <button type="button" class="btn btn-primary" id="btnStop">Stop</button>
+        
 
         <h2><span id="timeRemaining"></span></h2>
         <br>
         <p>Time Remaining</p>
         <hr> 
-        <h2><span id="correctCounter"></span></h2>
+        <h2><span id="correctCounter">0</span></h2>
         <br>
-        <p># of Correct Answers</p>
+        <p>Score</p>
       
     </div>
 
@@ -51,12 +58,9 @@
         </div>
 
         <div class="row px-3 pt-3 d-flex justify-content-center">
-        <ul class="list-group w-75">
-            <li class="list-group-item list-group-item-action multiplechoices">Morbi leo risus</li>
-            <li class="list-group-item list-group-item-action multiplechoices">Porta ac consectetur ac</li>
-            <li class="list-group-item list-group-item-action multiplechoices">Vestibulum at eros</li>
-            <li class="list-group-item list-group-item-action multiplechoices">Vestibulum at eros</li>
-          </ul>
+        <ul class="list-group w-75" id="choices">
+        <!-- Multiple choices goes here-->    
+        </ul>
         </div>
       </div>
 
@@ -69,7 +73,7 @@
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="./assets/javascript/script.js"></script>

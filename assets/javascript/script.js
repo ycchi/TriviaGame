@@ -70,6 +70,9 @@ function counter() {
   } else if (timeLimit === 0 && !nextQuestionRunning){
     stopIntervalTimer();
     nextQuestion();
+  } else if (questionArray.length === questionCounter){
+    stopIntervalTimer();
+    showResult();
   }
 
   timeLimit--;
@@ -97,34 +100,54 @@ function nextQuestion() {
   startIntervalTimer();
 
   // write question on page
-  $("#question").text(questionArray[0].question)
+  // loop through question
+  $("#question").text(questionArray[questionCounter].question)
   //console.log(questionArray[0].question)
+
+  // empty #choices
+  $("#choices").empty();
 
   // write multiple choices on page
   // loop through questionArray[i].choices array and write each choice to list item element
-  for (var i = 0; i < questionArray[0].choices.length; i++){
+  for (var i = 0; i < questionArray[questionCounter].choices.length; i++){
     //Create and append each li to ul #choices 
     var $choices = $("#choices")
     var $li = $("<li>");
     $li
-      .text(questionArray[0].choices[i])    
+      .text(questionArray[questionCounter].choices[i])
+      .attr("data", questionArray[questionCounter].choices[i])    
       .addClass("list-group-item list-group-item-action");
     $choices.append($li);
-    console.log("li " + $li )
   };
 
+  // click event on choices li -> check to see if the choice is an answer
 
-    //FAILD ATTEMPT: 
-    //Method2: adding text to existing li element
-    /*
-    $("li").each(function(){
-      console.log("this: " + $(this))
-      $(this).text(questionArray[0].choices[i])
-      console.log(i);
-    });
-    */
-  
-}
+  var answer = questionArray[questionCounter].answer
+  console.log(answer)
+  $("li").on("click", function(){
+    if ($(this).attr("data") === answer){
+      alert("You Got It!");
+      correctCounter++;
+      stopIntervalTimer();
+      nextQuestion();
+    } else {
+      stopIntervalTimer();
+      showAnswer();
+    }
+  })
+
+  // increment questionCounter each time this function is called.
+  questionCounter++;
+  console.log("questionCounter: " + questionCounter);
+
+  // write score to page
+  $("#correctCounter").text(correctCounter);
+};
+
+
+
+
+
 
 // showAnswer
 function showAnswer() {
@@ -135,10 +158,34 @@ function showAnswer() {
 
   // write correct answer to page
   $("#question").text("Correct Answer is...")
-  // highlight correct answer to page
+
+  // highlight correct answer to page: NOT WORKING
+  //$("li[data*='questionArray[questionCounter].answer']").addClass("active");
+
+  // empty #choices
+  $("#choices").empty();
+
+  var $choices = $("#choices")
+    var $li = $("<li>");
+    $li
+      .text(questionArray[questionCounter].answer)    
+      .addClass("list-group-item list-group-item-action active");
+    $choices.append($li);
+
+
 
 }
 
+
+function showResult() {
+  $("#question").text("Your final score is: " + correctCounter);
+
+  // empty #choices
+  $("#choices").empty();
+
+  // reset questionCounter
+  questionCounter = 0;
+}
 
 
 
