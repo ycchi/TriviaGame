@@ -1,28 +1,35 @@
 var questionArray = [
   {
-    question: 'Question 1: Apple or Orange',
-    answer: 'Answer 1',
-    choices: ['Answer 1', "Answer 2", "Answer 3", "Answer 4"],
+    question: 'Pick a fruit',
+    answer: 'Apple',
+    choices: ['Tomato', "Potato", "Apple", "Onion"],
     userAnswer: ""
   },
   {
-    question: 'Question 2',
-    answer: 'Answer 2',
-    choices: ['Answer 1', "Answer 2", "Answer 3", "Answer 4"],
+    question: 'Pick a vegetable',
+    answer: 'Carrot',
+    choices: ['Carrot', "Watermelon", "Sunflower", "Potato"],
     userAnswer: ""
   },
   {
-    question: 'Question 3',
-    answer: 'Answer 3',
-    choices: ['Answer 1', "Answer 2", "Answer 3", "Answer 4"],
+    question: '7 - 3 = ?',
+    answer: '4',
+    choices: ['4', "3", '2', "8"],
     userAnswer: ""
   },
   {
-    question: 'Question 4',
-    answer: 'Answer 4',
-    choices: ['Answer 1', "Answer 2", "Answer 3", "Answer 4"],
+    question: '1 + 1 = ?',
+    answer: '2',
+    choices: ['1', "2", "3", "4"],
     userAnswer: ""
-  }
+  },
+  // {
+  //   question: '',
+  //   answer: '',
+  //   choices: [],
+  //   userAnswer: ""
+  // },
+
 ]
 
 
@@ -61,7 +68,7 @@ function startIntervalTimer() {
   
 }
 
-// counter function??
+// counter function
 function counter() {
   
   if (timeLimit === 0 && nextQuestionRunning){
@@ -130,14 +137,20 @@ function nextQuestion() {
       correctCounter++;
       stopIntervalTimer();
       nextQuestion();
+
+      questionCounter++;
+
     } else {
       stopIntervalTimer();
       showAnswer();
+
+      questionCounter++;
+
     }
   })
 
   // increment questionCounter each time this function is called.
-  questionCounter++;
+  
   console.log("questionCounter: " + questionCounter);
 
   // write score to page
